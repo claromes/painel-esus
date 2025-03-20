@@ -37,7 +37,7 @@
 **/deploy.sh
 **/*.parquet
 **/**/*.parquet
-dados/input/** 
+dados/input/**
 dados/output/**
 #build
 **/static-files
@@ -53,3 +53,5 @@ docker-compose.yaml
 **/**.log
 **/**.log.**
 **/**.spec
+
+*.exe

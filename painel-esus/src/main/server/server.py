@@ -47,6 +47,8 @@ if config["ENV"] == "instalador":
 elif config["ENV"] == "windows":
     static_folder = os.path.join(os.getcwd(), "..", "paineis-v2-front", "static-files")
     static_folder = os.path.relpath(static_folder)
+elif config["ENV"] == "windows-service":
+    static_folder = os.path.join(sys._MEIPASS, "paineis-v2-front", "build")
 else:
     static_folder = os.path.join(os.getcwd(), "..", "paineis-v2-front", "static-files")
     static_folder = os.path.abspath(static_folder)
@@ -130,10 +132,7 @@ children = ChildrenPath()
 register_blueprint(
     app,
     (children_bp, children.root_path),
-    [
-        token_required,
-        cache.cached(timeout=24 * 60 * 60, query_string=True)
-    ],
+    [token_required, cache.cached(timeout=24 * 60 * 60, query_string=True)],
 )
 
 elderly = ElderlyPath()
@@ -148,8 +147,5 @@ records = RecordsPath()
 register_blueprint(
     app,
     (records_bp, records.root_path),
-    [
-        token_required,
-        cache.cached(timeout=24 * 60 * 60, query_string=True)
-    ],
+    [token_required, cache.cached(timeout=24 * 60 * 60, query_string=True)],
 )
