@@ -52,6 +52,6 @@ docker-compose.yaml
 
 **/**.log
 **/**.log.**
-**/**.spec
+
 
 *.exe
